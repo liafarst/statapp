@@ -1,0 +1,169 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+body {
+  background: #F2F2F2;
+  padding: 0;
+  maring: 0;
+}
+
+.product {
+  text-align: center;
+}
+
+.plan {
+  margin-top:20px;
+  display: inline-block;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.plan-inner {
+  background: #fff;
+  margin: 0 auto;
+  min-width: 600px;
+  max-width: 100%;
+  position:relative;
+}
+
+.entry-title {
+  background: #53CFE9;
+  height: 200px;
+  position: relative;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.product-name {
+  width: 100%;
+  background: #20BADA;
+  font-size: 20px;
+  padding: 20px 10px;
+  /* text-transform: uppercase; */
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.entry-title .price {
+  position: absolute;
+  bottom: -25px;
+  background: #20BADA;
+  height: 95px;
+  width: 95px;
+  margin: 0 auto;
+  left: 15px;
+  text-align:center;
+  overflow: hidden;
+  border-radius: 50px;
+  border: 5px solid #fff;
+  line-height: 80px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.categories {
+  color: #fff;
+  position: absolute;
+  min-width:450px;
+  margin-top:20px;
+  right: 20px;
+  font-size: 16px;
+}
+
+.categories select{
+  width: 100%;
+}
+
+.price span {
+  position: absolute;
+  font-size: 9px;
+  bottom: -10px;
+  left: 30px;
+  font-weight: 400;
+}
+
+.entry-content {
+  color: #323232;
+}
+
+.entry-content ul {
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+  text-align: right;
+}
+
+.line {
+  padding-left:100px;
+  border-bottom: 1px solid #E5E5E5;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* .entry-content li:last-child {
+  border: none;
+} */
+
+.blue-button {
+  text-align: center;
+  padding: 0;
+}
+
+.blue-button button {
+  cursor: pointer;
+  width:150px;
+  text-align:center;
+  background: #75DDD9;
+  padding: 10px 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size:14px;
+  text-decoration: none;
+}
+
+.blue-button button:hover {
+  text-decoration: none;
+}
+
+.hot {
+    position: absolute;
+    top: -7px;
+    background: #F80;
+    color: #fff;
+    text-transform: uppercase;
+    z-index: 2;
+    padding: 2px 5px;
+    font-size: 9px;
+    border-radius: 2px;
+    right: 10px;
+    font-weight: 700;
+}
+
+.basic .entry-title {
+  background: #75DDD9;
+}
+
+.basic .entry-title > h3 {
+  background: #44CBC6;
+}
+
+.basic .price {
+  background: #44CBC6;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.non-selectable {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
