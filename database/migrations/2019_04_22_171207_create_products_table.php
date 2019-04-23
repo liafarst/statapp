@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration {
           $table->string('name');
           $table->double('saved_price');
           $table->boolean('favourite');
-          $table->enum('type_general', ['type1', 'type2', 'type3']);
-          $table->enum('type_specific', ['type1', 'type2', 'type3']);
+          $table->integer('main-cat-id');
+          $table->integer('specific-cat-id');
           $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ $( document ).ready(function() {
   var maxSteps = 20;
   var stepID = 1;
 
+  // event listeners
   $('.step-indicator').children().on('click', function(e){
     oldStepID = stepID;
     stepID = ($(this).attr('id').substring($(this).attr('id').indexOf("p") + 1));
@@ -36,8 +37,22 @@ $( document ).ready(function() {
     }
   });
 
+  $('.main-cat').change(function(){
+    var mainCatID = $(this).find(':selected').val();
+    $('#specific-cat' + stepID).children().remove();
+    $('#specific-cat' + stepID).append('<option value="0"></option>');
+    specificCat.forEach(function(s){
+      if(s['main-cat-id'] == mainCatID){
+        console.log(s['name']);
+        var sID = s['id'];
+        var sName = s['name'];
+        $('#specific-cat' + stepID).append('<option value="' + sID + '">' + sName + '</option>');
+      }
+    });
+  });
+
   function isFinished(oldStepID) {
-    if($('#name' + oldStepID).val() == "" || $('#main-cat' + oldStepID).val() == "" || $('#specific-cat' + oldStepID).val() == "" || $('#quantity' + oldStepID).val() == "" || $('#quantity-type' + oldStepID).val() == "" || $('#price' + oldStepID).val() == "") {
+    if($('#name' + oldStepID).val() == "" || $('#main-cat' + oldStepID).val() == "0" || $('#specific-cat' + oldStepID).val() == "0" || $('#quantity' + oldStepID).val() == "" || $('#quantity-type' + oldStepID).val() == "" || $('#price' + oldStepID).val() == "") {
       $('#step' + oldStepID).removeClass('ready');
       return false;
     }

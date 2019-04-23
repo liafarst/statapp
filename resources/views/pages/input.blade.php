@@ -31,7 +31,8 @@
 @section('content')
 
 <script>
-    var products = {!! json_encode($products->toArray()) !!};
+    var products = {!! json_encode($data['products']->toArray()) !!};
+    var specificCat = {!! json_encode($data['specific-categories']->toArray()) !!};
 </script>
 
 @for($i = 1; $i <= 20; $i++)
@@ -48,10 +49,11 @@
             <div class="row mb-3">
               <div class="col-4">Main category</div>
               <div class="col-8">
-                <select id="main-cat{{ $i }}" class="form-control">
-                  <option></option>
-                  <option>Food</option>
-                  <option>Goods</option>
+                <select id="main-cat{{ $i }}" class="form-control main-cat">
+                    <option value="0"></option>
+                  @foreach($data['main-categories'] as $mainCat)
+                    <option value="{{ $mainCat['id'] }}">{{ $mainCat['name'] }}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -59,9 +61,10 @@
               <div class="col-4">Specific category</div>
               <div class="col-8">
                 <select id="specific-cat{{ $i }}" class="form-control">
-                  <option></option>
-                  <option>Vegetables</option>
-                  <option>Option 2</option>
+                    <option value="0"></option>
+                  @foreach($data['specific-categories'] as $specificCat)
+                    <option>{{ $specificCat['name'] }}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
