@@ -12,7 +12,7 @@ class ProductController extends Controller {
   public function getProducts() {
     $products = Product::where('user_id', '1')->get();
     $mainCategories = MainCategory::all();
-    $specificCategories = SpecificCategory::all();
+    $specificCategories = SpecificCategory::orderBy('name', 'asc')->get();
 
     $data = [
       'products' => $products,

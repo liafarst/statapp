@@ -29,7 +29,7 @@
     border: 2px solid #75DDD9 !important;
 }
 
-.step-indicator li:before {
+.step-indicator .stepper:before {
     background-image: none;
     background-size: 47px 47px;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 }
 
 .step-indicator .ready:before {
-    /* content: ''; */
+    content: '';
 }
 
 .step-indicator .goods:before {
@@ -72,6 +72,18 @@
 
 .step-indicator li:first-child:after {
     content: none;
+}
+
+.step-indicator li.unfinished {
+    color: #ff3333;
+}
+
+.step-indicator li.unfinished:before {
+    border-color: #ff3333;
+}
+
+.step-indicator li.unfinished+li:after {
+    background-color: #ff3333;
 }
 
 .step-indicator li.ready {

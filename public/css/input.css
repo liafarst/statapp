@@ -81,6 +81,7 @@ body {
 }
 
 .entry-content {
+  width:600px;
   color: #323232;
 }
 
@@ -92,7 +93,10 @@ body {
 }
 
 .line {
-  padding-left:100px;
+  line-height:32px;
+  margin: 0px 15px !important;
+  max-width:100%;
+  padding-left:80px;
   border-bottom: 1px solid #E5E5E5;
   padding-top: 10px;
   padding-bottom: 10px;

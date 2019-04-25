@@ -1,3 +1,5 @@
-<a href="./">Home</a>
-<a href="./new-bill">New Bill</a>
-<a href="./charts">Charts</a><br>
+<div class="text-center">
+  <a href="./">Home</a>
+  <a href="./new-bill">New Bill</a>
+  <a href="./charts">Charts</a><br>
+</div>
