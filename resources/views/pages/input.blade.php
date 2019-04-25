@@ -46,7 +46,7 @@
     <li id="step18" class="stepper non-selectable">Product name</li>
     <li id="step19" class="stepper non-selectable">Product name</li>
     <li id="step20" class="stepper non-selectable">Product name</li>
-    <br><br><br><br><br>
+
   </ul>
 </div>
 @endsection
@@ -58,16 +58,33 @@
     var mainCat = {!! json_encode($data['main-categories']->toArray()) !!};
     var specificCat = {!! json_encode($data['specific-categories']->toArray()) !!};
 </script>
+<div class="product">
+  <div class="plan basic">
+    <div class="plan-inner">
+      <div class="row text-center plan-inner" style="margin:0 !important;">
+        <div class="col-4 text-left">
+          <button type="button" id="button-left" class="btn btn-lg btn-primary btn-arrow-left ml-3 btn-correction" onclick="this.blur();">Previous</button>
+        </div>
+        <div class="col-4">
+          <button type="button" id="submit" class="btn btn-lg btn-primary ml-3 btn-correction" onclick="this.blur();">Submit</button>
+        </div>
+        <div class="col-4 text-right">
+          <button type="button" id="button-right" class="btn btn-lg btn-primary btn-arrow-right mr-3 btn-correction" onclick="this.blur();">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 @for($i = 1; $i <= 20; $i++)
   <div id="product{{ $i }}" class="product @if($i != 1) d-none @endif">
     <div class="plan basic">
       <div class="plan-inner">
         <div class="entry-title">
           <!-- <span class="hot">Favourite</span> -->
-          <div class="row product-name">
+          <div class="row product-name-block">
             <div class="col-4" style="color: #fff;">Product name</div>
             <div class="col-8">
-              <input id="name{{ $i }}" autocomplete="off" name="hidden" type="text" class="form-control" style="width:350px;" />
+              <input id="product-name{{ $i }}" autocomplete="off" name="hidden" value="" type="text" class="form-control" style="width:350px;" />
             </div>
           </div>
           <div class="categories">
@@ -91,50 +108,36 @@
               </div>
             </div>
           </div>
-          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/Default.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="60" height="60" />
+          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/Default.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="85" height="85" />
           </div>
         </div>
         <div class="entry-content">
-              <div class="row line">
-                <div class="col-2"><strong class="align-middle">Quantity</strong></div>
-                <div class="col-6"><input id="quantity{{ $i }}" type="number" class="form-control" style="width:100%"></div>
-                <div class="col-4">
-                  <select id="quantity-type{{ $i }}" class="form-control">
-                    <option value="0"></option>
-                    <option value="piece">piece(s)</option>
-                    <option value="meter">meter(s)</option>
-                    <option value="kg">kg</option>
-                    <option value="liter">liter(s)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row line">
-                <div class="col-2"><strong class="align-middle">Price</strong></div>
-                <div class="col-6"><input id="price{{ $i }}" type="number" class="form-control" style="width:100%"></div>
-                <div class="col-4">
-                  <span class="align-middle">&euro;</span>
-                </div>
-              </div>
-              <div class="row" style="padding:10px 0;">
-                <div class="col-4">
-                  <div class="blue-button">
-                    <button class="button-left" type="button">Previous</button>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="form-check" style="margin-top:10px;">
-                    <input class="form-check-input" type="checkbox" id="remember">
-                    <label class="form-check-label non-selectable" for="remember">
-                      Remember price and quantity
-                    </label>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="blue-button">
-                    <button class="button-right" type="button">Next</button>
-                  </div>
-                </div>
-              </div>
+          <div class="row line">
+            <div class="col-2"><strong class="align-middle">Quantity</strong></div>
+            <div class="col-6"><input id="quantity{{ $i }}" type="number" class="form-control quantity" style="width:100%"></div>
+            <div class="col-4">
+              <select id="quantity-type{{ $i }}" class="form-control">
+                <option value="0"></option>
+                <option value="piece">piece(s)</option>
+                <option value="meter">meter(s)</option>
+                <option value="kg">kg</option>
+                <option value="liter">liter(s)</option>
+              </select>
+            </div>
+          </div>
+          <div class="row line">
+            <div class="col-2"><strong class="align-middle">Price</strong></div>
+            <div class="col-6"><input id="price{{ $i }}" type="number" class="form-control" style="width:100%"></div>
+            <div class="col-4">
+              <span class="align-middle">&euro;</span>
+            </div>
+          </div>
+          <div class="form-check" style="margin-top:10px;">
+            <input class="form-check-input" type="checkbox" id="remember">
+            <label class="form-check-label non-selectable" for="remember">
+              Remember price and quantity
+            </label>
+          </div>
         </div>
       </div>
     </div>

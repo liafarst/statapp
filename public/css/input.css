@@ -1,5 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
+:root {
+  --button-color: white;
+  --button-background-color: #20BADA;
+  --button-background-color-hover: #75DDD9;
+}
+
 body {
   background: #F2F2F2;
   padding: 0;
@@ -11,7 +17,7 @@ body {
 }
 
 .plan {
-  margin-top:20px;
+  margin-top:10px;
   display: inline-block;
   font-family: 'Lato', Arial, sans-serif;
 }
@@ -32,7 +38,7 @@ body {
   margin-bottom: 30px;
 }
 
-.product-name {
+.product-name-block {
   width: 100%;
   background: #20BADA;
   font-size: 20px;
@@ -54,9 +60,10 @@ body {
   overflow: hidden;
   border-radius: 50px;
   border: 5px solid #fff;
-  line-height: 80px;
+  line-height: 78px;
   font-size: 28px;
   font-weight: 700;
+  padding: 0;
 }
 
 .categories {
@@ -106,28 +113,6 @@ body {
   border: none;
 } */
 
-.blue-button {
-  text-align: center;
-  padding: 0;
-}
-
-.blue-button button {
-  cursor: pointer;
-  width:150px;
-  text-align:center;
-  background: #75DDD9;
-  padding: 10px 30px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size:14px;
-  text-decoration: none;
-}
-
-.blue-button button:hover {
-  text-decoration: none;
-}
-
 .hot {
     position: absolute;
     top: -7px;
@@ -170,4 +155,20 @@ input[type=number] {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+}
+
+.btn-primary {
+  color: var(--button-color) !important;
+  background-color: var(--button-background-color) !important;
+  border: none !important;
+  /*border-radius: var(--border-radius) !important;*/
+}
+
+.btn-primary:hover {
+  background-color: var(--button-background-color-hover) !important;
+}
+
+.btn-correction {
+  font-size: 19px !important;
+  min-width:145px;
 }

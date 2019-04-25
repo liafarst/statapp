@@ -12,7 +12,7 @@ $( document ).ready(function() {
     changeStep();
   });
 
-  $('.button-left').on('click', function(e){
+  $('#button-left').on('click', function(e){
     if(stepID > 1){
       oldStepID = stepID;
       stepID--;
@@ -21,7 +21,7 @@ $( document ).ready(function() {
     }
   });
 
-  $('.button-right').on('click', function(e){
+  $('#button-right').on('click', function(e){
     if(stepID < maxSteps){
       oldStepID = stepID;
       stepID++;
@@ -81,9 +81,21 @@ $( document ).ready(function() {
     }
   });
 
+  $('.product-name-block').change(function(){
+    checkProducts($(this).find('input').val());
+  });
+
+  $('.product-name-block').keyup(function(){
+    checkProducts($(this).find('input').val());
+  });
+
+  // end event listeners
+
+  // helpers
+
   function checkStep(oldStepID){
-    if($('#name' + oldStepID).val() == "" || $('#main-cat' + oldStepID).val() == "0" || $('#specific-cat' + oldStepID).val() == "0" || $('#quantity' + oldStepID).val() == "" || $('#quantity-type' + oldStepID).val() == "0" || $('#price' + oldStepID).val() == "") {
-      if($('#name' + oldStepID).val() != "" || $('#main-cat' + oldStepID).val() != "0" || $('#specific-cat' + oldStepID).val() != "0" || $('#quantity' + oldStepID).val() != "" || $('#quantity-type' + oldStepID).val() != "0" || $('#price' + oldStepID).val() != "") {
+    if($('#product-name' + oldStepID).val() == "" || $('#main-cat' + oldStepID).val() == "0" || $('#specific-cat' + oldStepID).val() == "0" || $('#quantity' + oldStepID).val() == "" || $('#quantity-type' + oldStepID).val() == "0" || $('#price' + oldStepID).val() == "") {
+      if($('#product-name' + oldStepID).val() != "" || $('#main-cat' + oldStepID).val() != "0" || $('#specific-cat' + oldStepID).val() != "0" || $('#quantity' + oldStepID).val() != "" || $('#quantity-type' + oldStepID).val() != "0" || $('#price' + oldStepID).val() != "") {
         $('#step' + oldStepID).removeClass('ready');
         makeUnfinished(oldStepID);
       } else {
@@ -126,26 +138,35 @@ $( document ).ready(function() {
     $('#step' + stepID).addClass('active');
   }
 
+  function checkProducts(productName){
+    products.forEach(function(p){
+      if(productName == p['name']){
+        $('#main-cat' + stepID).val(p['main-cat-id']);
+        $('#main-cat' + stepID).trigger('change');
+        $('#specific-cat' + stepID).val(p['specific-cat-id']);
+        $('#specific-cat' + stepID).trigger('change');
+      }
+    });
+  }
+
+  // end helpers
+
 
 // easyAutocomplete
 
+  // config
+
   var options = {
-
     data: products,
-
     theme: "bootstrap",
-
     getValue: "name",
-
     cssClasses: "sheroes",
-
     template: {
       type: "iconRight",
       fields: {
         iconSrc: "icon"
       }
     },
-
     list: {
       match: {
         enabled: true
@@ -157,11 +178,11 @@ $( document ).ready(function() {
         type: "slide"
       }
     }
-
   };
 
+  // execute
   for(var i = 1; i <= maxSteps; i++) {
-      $("#name" + i).easyAutocomplete(options);
+      $("#product-name" + i).easyAutocomplete(options);
   }
 
 });
