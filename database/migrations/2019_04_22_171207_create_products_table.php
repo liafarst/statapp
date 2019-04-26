@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration {
           $table->string('name');
           $table->double('saved_price');
           $table->boolean('favourite');
-          $table->integer('main-cat-id');
-          $table->integer('specific-cat-id');
+          $table->integer('main_cat_id');
+          $table->integer('specific_cat_id');
           $table->timestamps();
         });
     }

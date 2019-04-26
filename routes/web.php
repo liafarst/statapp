@@ -20,3 +20,5 @@ Route::get('/new-bill', 'ProductController@getProducts');
 Route::get('/charts', function () {
     return view('pages.charts');
 });
+
+Route::post('/create-bill', 'OrderController@createOrders');

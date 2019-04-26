@@ -4,18 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpecificCategoriesTable extends Migration {
+class AddBillIdToOrders extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
     public function up() {
-        Schema::create('specific_categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('main_cat_id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('bill_id');
         });
     }
 
@@ -25,6 +22,8 @@ class CreateSpecificCategoriesTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('specific_categories');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('bill_id');
+        });
     }
 }

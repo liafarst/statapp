@@ -1,5 +1,11 @@
 $( document ).ready(function() {
 
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
 // Progress
   var maxSteps = 20;
   var stepID = 1;
@@ -47,7 +53,7 @@ $( document ).ready(function() {
       $('#catImage' + stepID).attr('src','../public/images/' + mainCatName + '.png');
     }
     specificCat.forEach(function(s){
-      if(s['main-cat-id'] == mainCatID){
+      if(s['main_cat_id'] == mainCatID){
         var sID = s['id'];
         var sName = s['name'];
         $('#specific-cat' + stepID).append('<option value="' + sID + '">' + sName + '</option>');
@@ -74,7 +80,7 @@ $( document ).ready(function() {
       specificCat.forEach(function(s){
         if(s['id'] == specificCatID){
           specificCatName = s['name'];
-          mainCatID = s['main-cat-id'];
+          mainCatID = s['main_cat_id'];
         }
       });
       $('#catImage' + stepID).attr('src','../public/images/' + specificCatName + mainCatID + '.png');
@@ -87,6 +93,37 @@ $( document ).ready(function() {
 
   $('.product-name-block').keyup(function(){
     checkProducts($(this).find('input').val());
+  });
+
+  $('#submit').on('click', function(){
+    var orders = [];
+    for(var i = 1; i <= maxSteps; i++){
+      var productName = $('#product-name' + i).val();
+      var mainCatID = $('#main-cat' + i).val();
+      var specificCatID = $('#specific-cat' + i).val();
+      var quantity = $('#quantity' + i).val();
+      var quantityType = $('#quantity-type' + i).val();
+      var price = $('#price' + i).val();
+      if(productName == "" || mainCatID == "0" || specificCatID == "0" || quantity == "" || quantityType == "0" || price == ""){
+        continue;
+      }
+      orders.push({'product_name' : productName, 'main_cat_id' : mainCatID, 'specific_cat_id' : specificCatID, 'quantity' : quantity, 'quantity_type' : quantityType, 'price' : price});
+    }
+    if(orders.length == 0){
+      alert('You haven\'t given any data.');
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '/create-bill',
+        data: {orders: orders},
+        success: function (data) {
+          window.location.href = "/";
+        },
+        error: function () {
+          alert("Error!");
+        }
+      });
+    }
   });
 
   // end event listeners
@@ -141,9 +178,9 @@ $( document ).ready(function() {
   function checkProducts(productName){
     products.forEach(function(p){
       if(productName == p['name']){
-        $('#main-cat' + stepID).val(p['main-cat-id']);
+        $('#main-cat' + stepID).val(p['main_cat_id']);
         $('#main-cat' + stepID).trigger('change');
-        $('#specific-cat' + stepID).val(p['specific-cat-id']);
+        $('#specific-cat' + stepID).val(p['specific_cat_id']);
         $('#specific-cat' + stepID).trigger('change');
       }
     });

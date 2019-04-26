@@ -15,9 +15,9 @@ class ProductController extends Controller {
     $specificCategories = SpecificCategory::orderBy('name', 'asc')->get();
 
     // set icons
-    $testCat = SpecificCategory::find($products[0]['main-cat-id']);
+    $testCat = SpecificCategory::find($products[0]['main_cat_id']);
     foreach($products as $product){
-      $product['icon'] = '../public/images/' . SpecificCategory::find($product['specific-cat-id'])['name'] . $product['main-cat-id'] . '.ico';
+      $product['icon'] = '../public/images/' . SpecificCategory::find($product['specific_cat_id'])['name'] . $product['main_cat_id'] . '.ico';
     }
 
     $data = [
