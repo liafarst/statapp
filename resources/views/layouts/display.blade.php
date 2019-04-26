@@ -6,16 +6,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ URL::asset('public/css/navbar.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('public/css/input.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('public/css/progress.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('public/css/easy-autocomplete.min.css') }}"/>
-    <link rel="stylesheet" href="{{ URL::asset('public/css/easy-autocomplete.themes.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('public/css/display.css') }}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-    <link href="{{ URL::asset('public/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('public/css/bootstrap-directional-buttons.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -32,8 +27,7 @@
 <body>
   <div class="page-wrapper chiller-theme toggled">
     @include('inc.navbar')
-    <main class="page-content" style="width:1300px;text-align:left !important;">
-      @yield('progress')
+    <main class="page-content" style="width:1300px;">
       <div class="info-container">
         @yield('content')
       </div>
@@ -41,9 +35,7 @@
     </main>
     <!-- page-content" -->
   </div>
-<script type="text/javascript" src="{{ URL::asset('public/js/jquery.easy-autocomplete.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('public/js/navbar.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('public/js/progress.js') }}"></script>
 
 </body>
 </html>

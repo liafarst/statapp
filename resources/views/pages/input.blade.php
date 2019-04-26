@@ -66,7 +66,7 @@
           <button type="button" id="button-left" class="btn btn-lg btn-primary btn-arrow-left ml-3 btn-correction" onclick="this.blur();">Previous</button>
         </div>
         <div class="col-4">
-          <button type="button" id="submit" class="btn btn-lg btn-primary ml-3 btn-correction" onclick="this.blur();">Submit</button>
+          <button type="button" id="submit" class="btn btn-lg btn-primary btn-correction" onclick="this.blur();">Submit</button>
         </div>
         <div class="col-4 text-right">
           <button type="button" id="button-right" class="btn btn-lg btn-primary btn-arrow-right mr-3 btn-correction" onclick="this.blur();">Next</button>
@@ -108,7 +108,7 @@
               </div>
             </div>
           </div>
-          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/Default.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="85" height="85" />
+          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/apple.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="85" height="85" />
           </div>
         </div>
         <div class="entry-content">

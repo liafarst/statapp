@@ -158,7 +158,7 @@ $( document ).ready(function() {
   }
 
   function makeReady(oldStepID){
-    var productName = $('#name' + oldStepID).val();
+    var productName = $('#product-name' + oldStepID).val();
     $('#step' + oldStepID).text(productName);
     $('#step' + oldStepID).removeClass('unfinished');
     $('#step' + oldStepID).addClass('ready');

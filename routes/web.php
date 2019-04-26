@@ -21,4 +21,8 @@ Route::get('/charts', function () {
     return view('pages.charts');
 });
 
+Route::get('/bill-history', function () {
+    return view('pages.history');
+});
+
 Route::post('/create-bill', 'OrderController@createOrders');

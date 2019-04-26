@@ -1,6 +1,7 @@
 .step-indicator-container {
-    width: 800px;
-    margin: 0 auto;
+    width: 900px;
+    margin: 0;
+    padding: 0 !important;
 }
 
 .step-indicator {
@@ -43,7 +44,7 @@
     text-align: center;
     margin: 0 auto 10px auto;
     border-radius: 50%;
-    background-color: white;
+    background-color: #F2F2F2;
     cursor: pointer;
 }
 
@@ -112,5 +113,5 @@
 
 /* new row */
 .step-indicator li:nth-child(10n+1):after {
-    background-color: #fff !important;
+    background-color: #F2F2F2 !important;
 }
