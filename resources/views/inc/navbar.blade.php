@@ -71,19 +71,34 @@
           <div class="sidebar-submenu">
             <ul>
               <li>
-                <a href="#">Pie chart</a>
+                <a href="/charts/by-product">Spendings by product</a>
               </li>
               <li>
-                <a href="#">Line chart</a>
+                <a href="#">Spendings by category</a>
               </li>
               <li>
-                <a href="#">Bar chart</a>
+                <a href="#">Spendings by location</a>
               </li>
               <li>
-                <a href="#">Histogram</a>
+                <a href="#">Total spendings</a>
+              </li>
+              <li>
+                <a href="#">Goal progress</a>
               </li>
             </ul>
           </div>
+        </li>
+        <li>
+          <a href="/my-products">
+            <i class="fa fa-cube"></i>
+            <span>My Products</span>
+          </a>
+        </li>
+        <li>
+          <a href="/locations">
+            <i class="fa fa-map-marker-alt"></i>
+            <span>Locations</span>
+          </a>
         </li>
         <li>
           <a href="/fix-income">

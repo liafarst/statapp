@@ -21,8 +21,28 @@ Route::get('/charts', function () {
     return view('pages.charts');
 });
 
-Route::get('/bill-history', function () {
-    return view('pages.history');
-});
+Route::get('/bill-history', 'OrderController@getBills');
 
-Route::post('/create-bill', 'OrderController@createOrders');
+Route::get('/bill-history/edit/{billID}', 'OrderController@showBill');
+
+Route::get('/my-products', 'ProductController@indexProducts');
+
+Route::get('/locations', 'LocationController@getLocations');
+
+Route::get('/charts/by-product', 'OrderController@spendingsByProduct');
+
+Route::post('/create-bill', 'OrderController@createBill');
+
+Route::post('/update-bill', 'OrderController@updateBill');
+
+Route::post('/update-products', 'ProductController@updateProducts');
+
+Route::post('/update-locations', 'LocationController@updateLocations');
+
+Route::post('/delete-bill', 'OrderController@deleteBill');
+
+Route::post('/delete-order', 'OrderController@deleteOrder');
+
+Route::post('/delete-product', 'ProductController@deleteProduct');
+
+Route::post('/delete-location', 'LocationController@deleteLocation');

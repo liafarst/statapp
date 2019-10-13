@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ URL::asset('public/css/navbar.css') }}"/>
     <link rel="stylesheet" href="{{ URL::asset('public/css/display.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('public/css/easy-autocomplete.min.css') }}"/>
+    <link rel="stylesheet" href="{{ URL::asset('public/css/easy-autocomplete.themes.min.css') }}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -27,7 +29,7 @@
 <body>
   <div class="page-wrapper chiller-theme toggled">
     @include('inc.navbar')
-    <main class="page-content" style="width:1300px;">
+    <main class="page-content">
       <div class="info-container">
         @yield('content')
       </div>
@@ -35,7 +37,9 @@
     </main>
     <!-- page-content" -->
   </div>
-<script type="text/javascript" src="{{ URL::asset('public/js/navbar.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('public/js/jquery.easy-autocomplete.min.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('public/js/navbar.js') }}"></script>
+  @yield('scripts')
 
 </body>
 </html>

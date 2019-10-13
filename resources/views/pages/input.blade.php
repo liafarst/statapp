@@ -82,15 +82,15 @@
         <div class="entry-title">
           <!-- <span class="hot">Favourite</span> -->
           <div class="row product-name-block">
-            <div class="col-4" style="color: #fff;">Product name</div>
-            <div class="col-8">
+            <div class="col-6 text-left" style="color: #fff;">Product name</div>
+            <div class="col-6">
               <input id="product-name{{ $i }}" autocomplete="off" name="hidden" value="" type="text" class="form-control" style="width:350px;" />
             </div>
           </div>
           <div class="categories">
             <div class="row mb-3">
-              <div class="col-4">Main category</div>
-              <div class="col-8">
+              <div class="col-6">Main category</div>
+              <div class="col-6">
                 <select id="main-cat{{ $i }}" class="form-control main-cat">
                     <option value="0"></option>
                   @foreach($data['main-categories'] as $mainCat)
@@ -100,21 +100,21 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-4">Specific category</div>
-              <div class="col-8">
+              <div class="col-6">Specific category</div>
+              <div class="col-6">
                 <select id="specific-cat{{ $i }}" class="form-control specific-cat">
                     <option value="0"></option>
                 </select>
               </div>
             </div>
           </div>
-          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/apple.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="85" height="85" />
+          <div class="price"><img id="catImage{{ $i }}" src="{{URL::asset('public/images/apple.png')}}" onerror="this.src='{{URL::asset('public/images/Default.png')}}'" width="130" height="130" />
           </div>
         </div>
         <div class="entry-content">
           <div class="row line">
-            <div class="col-2"><strong class="align-middle">Quantity</strong></div>
-            <div class="col-6"><input id="quantity{{ $i }}" type="number" class="form-control quantity" style="width:100%"></div>
+            <div class="col-4"><strong class="align-middle">Quantity</strong></div>
+            <div class="col-4"><input id="quantity{{ $i }}" type="number" class="form-control quantity" style="width:100%"></div>
             <div class="col-4">
               <select id="quantity-type{{ $i }}" class="form-control">
                 <option value="0"></option>
@@ -126,18 +126,18 @@
             </div>
           </div>
           <div class="row line">
-            <div class="col-2"><strong class="align-middle">Price</strong></div>
-            <div class="col-6"><input id="price{{ $i }}" type="number" class="form-control" style="width:100%"></div>
-            <div class="col-4">
+            <div class="col-4"><strong class="align-middle">Price</strong></div>
+            <div class="col-4"><input id="price{{ $i }}" type="number" class="form-control" style="width:100%"></div>
+            <div class="col-4 text-center">
               <span class="align-middle">&euro;</span>
             </div>
           </div>
-          <div class="form-check" style="margin-top:10px;">
+          <!-- <div class="form-check text-center" style="margin-top:10px;">
             <input class="form-check-input" type="checkbox" id="remember">
             <label class="form-check-label non-selectable" for="remember">
               Remember price and quantity
             </label>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

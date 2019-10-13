@@ -7,10 +7,54 @@
 }
 
 body {
-   background: #F2F2F2 !important;
+  background: #F2F2F2 !important;
    /*background: #31353D !important;*/
   padding: 0;
   maring: 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 300px;
+    /*0*/
+  }
+}
+
+@media screen and (max-width: 1250px) and (min-width: 1100px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 300px;
+    /*100*/
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1250px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 300px;
+    /*200*/
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1500px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 400px;
+    /*300*/
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .page-wrapper.toggled .page-content {
+    padding-left: 600px;
+    /*500*/
+  }
+  body {
+    overflow-x: hidden;
+  }
 }
 
 .info-container {
@@ -21,8 +65,9 @@ body {
 }
 
 .product {
-  text-align: center;
+  text-align: right;
   width: 900px;
+  margin-bottom: 50px;
 }
 
 .plan {
@@ -34,14 +79,14 @@ body {
 .plan-inner {
   background: #F2F2F2;
   margin: 0 auto;
-  min-width: 600px;
+  min-width: 850px;
   max-width: 100%;
   position:relative;
 }
 
 .entry-title {
   background: #53CFE9;
-  height: 200px;
+  height: 220px;
   position: relative;
   text-align: left;
   margin-bottom: 30px;
@@ -50,7 +95,7 @@ body {
 .product-name-block {
   width: 100%;
   background: #20BADA;
-  font-size: 20px;
+  font-size: 28px;
   padding: 20px 10px;
   /* text-transform: uppercase; */
   font-weight: 700;
@@ -61,15 +106,14 @@ body {
   position: absolute;
   bottom: -25px;
   background: #20BADA;
-  height: 95px;
-  width: 95px;
+  height: 140px;
+  width: 140px;
   margin: 0 auto;
-  left: 15px;
+  left: 50px;
   text-align:center;
   overflow: hidden;
-  border-radius: 50px;
+  border-radius: 70px;
   border: 5px solid #F2F2F2;
-  line-height: 78px;
   font-size: 28px;
   font-weight: 700;
   padding: 0;
@@ -78,9 +122,10 @@ body {
 .categories {
   color: #fff;
   position: absolute;
+  font-size: 20px !important;
   min-width:450px;
   margin-top:20px;
-  right: 20px;
+  right: 100px;
   font-size: 16px;
 }
 
@@ -97,7 +142,7 @@ body {
 }
 
 .entry-content {
-  width:600px;
+  width:800px;
   color: #323232;
 }
 
