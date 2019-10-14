@@ -265,6 +265,19 @@ class OrderController extends Controller {
 
   public function spendingsByProduct(){
 
+    $products = Product::where('user_id', '1')->orderBy('name', 'asc')->get();
+
+    // set icons
+    foreach($products as $product){
+      if($product['main_cat_id'] == 0){
+        $product['icon'] = '/public/images/Default.ico';
+      } else if($product['specific_cat_id'] == 0) {
+        $product['icon'] = '/public/images/' . MainCategory::find($product['main_cat_id'])['name'] . '.ico';
+      } else {
+        $product['icon'] = '/public/images/' . SpecificCategory::find($product['specific_cat_id'])['name'] . $product['main_cat_id'] . '.ico';
+      }
+    }
+
     $orders = Order::whereHas('product', function($query) {
         $query->where('user_id', 1);
     })->get();
@@ -274,6 +287,7 @@ class OrderController extends Controller {
     }
 
     $data = [
+      'products' => $products,
       'orders' => $orders
     ];
 

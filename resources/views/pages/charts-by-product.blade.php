@@ -2,6 +2,7 @@
 
 @section('content')
   <script>
+      var products = {!! json_encode($data['products']->toArray()) !!};
       var orders = {!! json_encode($data['orders']->toArray()) !!};
   </script>
 

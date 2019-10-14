@@ -60,7 +60,6 @@ $( document ).ready(function() {
     var month = $('#specific-month').children('.active').attr('value');
     var year = $(this).text();
     plotSpecific(ctx, product, month, year);
-    // alert(product + " " + month + " " + year);
   });
 
   $('#specific-month').children().on('click', function(){
@@ -70,10 +69,110 @@ $( document ).ready(function() {
     var month = $(this).val();
     var year = $('#specific-year').children('.active').text();
     plotSpecific(ctx, product, month, year);
-    // alert(product + " " + month + " " + year);
   });
 
+// easyAutocomplete
 
+  // config
+
+  var mainCat1 = [];
+  var mainCat2 = [];
+  var mainCat3 = [];
+  var mainCat4 = [];
+  var mainCat5 = [];
+  var mainCat6 = [];
+
+  products.forEach(function(p){
+    switch(p['main_cat_id']){
+      case 1:
+        mainCat1.push(p);
+        break;
+      case 2:
+        mainCat2.push(p);
+        break;
+      case 3:
+        mainCat3.push(p);
+        break;
+      case 4:
+        mainCat4.push(p);
+        break;
+      case 5:
+        mainCat5.push(p);
+        break;
+      default:
+        mainCat6.push(p);
+        break;
+    }
+  });
+
+  var newProducts = {
+    "1" : mainCat1,
+    "2" : mainCat2,
+    "3" : mainCat3,
+    "4" : mainCat4,
+    "5" : mainCat5,
+    "6" : mainCat6
+  };
+
+  var options = {
+    data: newProducts,
+    theme: "bootstrap",
+    getValue: "name",
+    cssClasses: "sheroes",
+    template: {
+      type: "iconRight",
+      fields: {
+        iconSrc: "icon"
+      }
+    },
+    categories: [
+      {listLocation: "1", header: "-- Food & drink --"},
+      {listLocation: "2", header: "-- Household goods --"},
+      {listLocation: "3", header: "-- Electronic devices --"},
+      {listLocation: "4", header: "-- Clothing --"},
+      {listLocation: "5", header: "-- Other --"},
+      {listLocation: "6", header: "-- No category --"}
+    ],
+    list: {
+      match: {
+        enabled: true
+      },
+      showAnimation: {
+        type: "slide",
+        time: 50,
+      },
+      hideAnimation: {
+        type: "slide",
+        time: 50,
+      }
+    }
+  };
+
+  // execute
+  $('#product-name').easyAutocomplete(options);
+
+  $('.product-name').change(function(){
+    var product = $('#product-name').val();
+    switch($('#period').val()){
+      case "lw":
+        plotLW(ctx, product);
+        break;
+      case "lm":
+        plotLM(ctx, product);
+        break;
+      case "ly":
+        plotLY(ctx, product);
+        break;
+      case "specific":
+        var month = $('#specific-month').children('.active').attr('value');
+        var year = $('#specific-year').children('.active').text();
+        console.log(month + " " + year);
+        plotSpecific(ctx, product, month, year);
+        break;
+      default:
+        break;
+    }
+  });
 
 });
 
