@@ -284,6 +284,7 @@ class OrderController extends Controller {
 
     foreach($orders as $order){
       $order->bill;
+      $order->product;
     }
 
     $data = [

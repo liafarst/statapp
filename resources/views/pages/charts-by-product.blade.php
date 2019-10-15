@@ -7,7 +7,7 @@
   </script>
 
   <h1>Spendings by product</h1>
-  <h3 id="info"></h3>
+  <h3 id="info">Last week</h3>
   <!-- <div class="container-fluid"> -->
     <div class="row">
       <div class=col-xl-9>
@@ -19,12 +19,12 @@
           <input id="product-name" autocomplete="off" name="hidden" value="" type="text" class="form-control product-name" />
           <label for="">Period</label>
           <select id="period" class="form-control">
-            <option value="lw">Last week</option>
+            <option value="lw" selected>Last week</option>
             <option value="lm">Last month</option>
             <option value="ly">Last year</option>
-            <option value="specific" selected>Specific period</option>
+            <option value="specific">Specific period</option>
           </select>
-          <div id="specific-period" style="margin-top:20px;">
+          <div id="specific-period" style="margin-top:20px;display:none;">
             <label for="specific-year">Year</label>
             <ol id="specific-year" class="breadcrumb" style="background:none;">
               <li class="breadcrumb-item active">2019</li>

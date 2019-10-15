@@ -33,6 +33,10 @@ $( document ).ready(function() {
   $('#period').on('change', function(){
     if($(this).val() == "specific"){
       $('#specific-period').show();
+      var month = $('#specific-month').children('.active').attr('value');
+      var year = $('#specific-year').children('.active').text();
+      var product = $('#product-name').val();
+      plotSpecific(ctx, product, month, year);
     } else {
       $('#specific-period').hide();
       var product = $('#product-name').val();
@@ -174,6 +178,8 @@ $( document ).ready(function() {
     }
   });
 
+  plotLW(ctx, "");
+
 });
 
 function plotLW(ctx, product){
@@ -181,11 +187,12 @@ function plotLW(ctx, product){
   var dataY = [];
   var prices = new Array(0, 0, 0, 0, 0, 0, 0);
   var d = new Date();
+  $('#info').text("Last week");
   d.setDate(d.getDate() - 7);
   for(var i = 0; i < 7; i++){
     d.setDate(d.getDate() + 1);
     orders.forEach(function(o){
-      if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear()){
+      if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear() && product == o.product.name){
         prices[i] += o.price;
       }
     });
@@ -204,6 +211,7 @@ function plotLM(ctx, product){
   var dataX = [];
   var dataY = [];
   var d = new Date();
+  $('#info').text("Last month");
   d.setMonth(d.getMonth() - 1);
   var days = daysInMonth(d.getMonth(), d.getYear());
   var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
@@ -214,7 +222,7 @@ function plotLM(ctx, product){
   for(var i = 0; i < days; i++){
     d.setDate(d.getDate() + 1);
     orders.forEach(function(o){
-      if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear()){
+      if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear() && product == o.product.name){
         prices[i] += o.price;
       }
     });
@@ -230,11 +238,12 @@ function plotLY(ctx, product){
   var dataY = [];
   var prices = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
   var d = new Date();
+  $('#info').text("Last year");
   d.setYear(d.getYear() - 1 + 1900);
   for(var i = 0; i < 12; i++){
     d.setMonth(d.getMonth() + 1);
     orders.forEach(function(o){
-      if(new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear()){
+      if(new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear() && product == o.product.name){
         prices[i] += o.price;
       }
     });
@@ -259,7 +268,7 @@ function plotSpecific(ctx, product, month, year){
 
       // set Y
       orders.forEach(function(o){
-        if(new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear()){
+        if(new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear() && product == o.product.name){
           prices[i] += o.price;
         }
       });
@@ -275,7 +284,7 @@ function plotSpecific(ctx, product, month, year){
       prices[i] = 0;
       var d = new Date(year, month - 1, i + 1);
       orders.forEach(function(o){
-        if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear()){
+        if(new Date(o.bill.created_at).getDate() == d.getDate() && new Date(o.bill.created_at).getMonth() == d.getMonth() && new Date(o.bill.created_at).getYear() == d.getYear() && product == o.product.name){
           prices[i] += o.price;
         }
       });
