@@ -213,7 +213,7 @@ function plotLM(ctx, product){
   var d = new Date();
   $('#info').text("Last month");
   d.setMonth(d.getMonth() - 1);
-  var days = daysInMonth(d.getMonth(), d.getYear());
+  var days = daysInMonth(d.getMonth() + 1, d.getYear());
   var months = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
   var prices = new Array(days);
   for(var i = 0; i < prices.length; i++){
